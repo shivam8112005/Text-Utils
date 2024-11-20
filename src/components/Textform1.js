@@ -28,6 +28,9 @@ export default function Textform1(props) {
         setAns(text.substring(s));
         props.showalert("found email.", "success");
     }
+    const handleCopy=()=>{
+        navigator.clipboard.writeText(text);
+    }
   return (
    <>
    <h3 className={`text-${props.text}`}>{props.title}</h3>
@@ -40,6 +43,7 @@ export default function Textform1(props) {
 <button className="btn btn-primary my-2 mx-4" style={{backgroundColor:props.bg, color:props.text}} onClick={handleUpClick}>conver to uppercase</button>
 <button className="btn btn-primary my-2" onClick={handleLowClick} style={{backgroundColor:props.bg, color:props.text}}>conver to lowercase</button>
 <button className="btn btn-primary my-2 mx-4" onClick={handleEmail} style={{backgroundColor:props.bg, color:props.text}}>Extract email handle</button>
+<button className="btn btn-primary my-2 mx-4" onClick={handleCopy} style={{backgroundColor:props.bg, color:props.text}}>copy</button>
 <h4 className={`text-${props.text}`}> {button}: {ans}</h4>
     </div>
    </>

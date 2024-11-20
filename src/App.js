@@ -149,7 +149,7 @@ import About from './components/About';
 import Navbar from './components/Navbar';
 import Textform1 from './components/Textform1';
 import Alert from './components/Alert';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [mode, setMode] = useState('light'); // Theme mode: light or dark
@@ -187,17 +187,22 @@ function App() {
       setBg('white');
       setText('black');
       document.body.style.backgroundColor = 'white';
+      console.log(1);
+      
     } else {
       setBg(color);
+   if(color==='black')
       setText('white');
       document.body.style.backgroundColor = color;
+      console.log(2);
+      
     }
     console.log('text:', text, 'bg:', bg);
   };
 
   return (
     <>
-      {/* <Router> */}
+      <Router>
         {/* Navbar Component */}
         <Navbar mode={mode} toggleMode={toggleMode} bgcolor={bgcolor} text={text} />
         
@@ -206,10 +211,10 @@ function App() {
         
         {/* Main Content */}
         <div className="container my-3">
-          {/* <Routes> */}
-            {/* <Route */}
-             {/* exact path="/" */}
-              {/* element={ */}
+          <Routes>
+            <Route
+             exact path="/"
+              element={
                 <Textform1
                   text={text}
                   bg={bg}
@@ -218,12 +223,12 @@ function App() {
                   mode={mode}
                   toggleMode={toggleMode}
                 />
-              {/* } */}
-            {/* /> */}
-            {/* <Route exact path="/about" element={<About />} /> */}
-          {/* </Routes> */}
+              }
+            />
+            <Route exact path="/about" element={<About />} />
+          </Routes>
         </div>
-      {/* </Router> */}
+      </Router>
     </>
   );
 }
