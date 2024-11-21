@@ -33,6 +33,7 @@ export default function Textform1(props) {
     }
   return (
    <>
+   <div className="textform" style={{position:'absolute', top:'25%'}}>
    <h3 className={`text-${props.text}`}>{props.title}</h3>
    <div className="form-floating">
         {/* onchange is a eventlistner and whenever somethings change then it will call a function with event param */}
@@ -40,11 +41,13 @@ export default function Textform1(props) {
   <label htmlFor="floatingTextarea2">Comments</label>
 </div>
 <div className="container my-4">
-<button className="btn btn-primary my-2 mx-4" style={{backgroundColor:props.bg, color:props.text}} onClick={handleUpClick}>conver to uppercase</button>
-<button className="btn btn-primary my-2" onClick={handleLowClick} style={{backgroundColor:props.bg, color:props.text}}>conver to lowercase</button>
+<button className="btn btn-primary my-2 mx-4" style={{backgroundColor:props.bg, color:props.text}} onClick={handleUpClick}>convert to uppercase</button>
+<button className="btn btn-primary my-2" onClick={handleLowClick} style={{backgroundColor:props.bg, color:props.text}}>convert to lowercase</button>
 <button className="btn btn-primary my-2 mx-4" onClick={handleEmail} style={{backgroundColor:props.bg, color:props.text}}>Extract email handle</button>
 <button className="btn btn-primary my-2 mx-4" onClick={handleCopy} style={{backgroundColor:props.bg, color:props.text}}>copy</button>
+
 <h4 className={`text-${props.text}`}> {button}: {ans}</h4>
+    </div>
     </div>
    </>
   )
